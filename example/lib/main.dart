@@ -1,9 +1,7 @@
-import 'package:example/entity/calendar_config.dart';
-import 'package:example/entity/event.dart';
-import 'package:example/view/calendar_view/calendar_view.dart';
+import 'package:event_schedule_calendar/entity/calendar_config.dart';
+import 'package:event_schedule_calendar/entity/event.dart';
+import 'package:event_schedule_calendar/view/calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
-
-import 'entity/day.dart';
 
 void main() {
   runApp(MyApp());
@@ -73,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
         config: CalendarConfig(),
-        onTapDay: (Day day) {
+        onTapDay: (day) {
           showDialog<AlertDialog>(
             context: context,
             builder: (context) {

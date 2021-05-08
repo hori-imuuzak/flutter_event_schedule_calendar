@@ -1,4 +1,4 @@
-import 'package:example/model/weekday_cursor.dart';
+import 'package:event_schedule_calendar/model/weekday_cursor.dart';
 
 class CalendarService {
   int _beginWeekday;

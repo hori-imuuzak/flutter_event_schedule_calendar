@@ -1,5 +1,5 @@
-import 'package:example/entity/event.dart';
-import 'package:example/entity/month_type.dart';
+import 'package:event_schedule_calendar/entity/event.dart';
+import 'package:event_schedule_calendar/entity/month_type.dart';
 
 class Day {
   DateTime _dateTime;

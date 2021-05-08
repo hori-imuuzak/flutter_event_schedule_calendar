@@ -1,7 +1,5 @@
-library event_schedule_calendar;
-
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'entity/calendar_config.dart';
+export 'entity/event.dart';
+export 'entity/palette_config.dart';
+export 'entity/weekday_label_config.dart';
+export 'view/calendar_view/calendar_view.dart';
