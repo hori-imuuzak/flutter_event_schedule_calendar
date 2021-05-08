@@ -1,3 +1,4 @@
+import 'package:example/entity/calendar_config.dart';
 import 'package:example/entity/day.dart';
 import 'package:example/entity/event.dart';
 import 'package:example/entity/month_type.dart';
@@ -10,19 +11,19 @@ import 'package:flutter/material.dart';
 class CalendarView extends StatelessWidget {
   final DateTime dateTime;
   final List<Event> eventList;
-  final int beginWeekday;
   final Function onTapDay;
+  final CalendarConfig config;
 
   CalendarView({
     this.dateTime,
     this.eventList,
-    this.beginWeekday,
     this.onTapDay,
+    this.config,
   });
 
   @override
   Widget build(BuildContext context) {
-    final calendarService = CalendarService(begin: beginWeekday);
+    final calendarService = CalendarService(begin: config.beginWeekday);
     final eventService = EventService();
 
     final cellTable = [
@@ -67,7 +68,7 @@ class CalendarView extends StatelessWidget {
       ),
       child: Column(
         children: [
-          WeekdayLabel(beginWeekday),
+          WeekdayLabel(config.beginWeekday),
           Expanded(
             child: GridView.count(
               crossAxisCount: 7,
@@ -79,6 +80,8 @@ class CalendarView extends StatelessWidget {
                     (e) => DayCell(
                       day: e.value,
                       onTap: onTapDay,
+                      remainCountPattern: config.remainEventCountPattern,
+                      paletteConfig: config.paletteConfig,
                     ),
                   )
                   .toList(),

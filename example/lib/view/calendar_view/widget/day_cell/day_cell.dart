@@ -1,4 +1,5 @@
 import 'package:example/entity/day.dart';
+import 'package:example/entity/palette_config.dart';
 import 'package:example/view/calendar_view/widget/day_cell/widget/event_band.dart';
 import 'package:example/view/calendar_view/widget/day_cell/widget/remain_event_text.dart';
 import 'package:flutter/material.dart';
@@ -8,10 +9,14 @@ const maxDisplayEventBand = 2;
 class DayCell extends StatelessWidget {
   final Day day;
   final Function onTap;
+  final String remainCountPattern;
+  final PaletteConfig paletteConfig;
 
   DayCell({
     this.day,
     this.onTap,
+    this.remainCountPattern,
+    this.paletteConfig,
   });
 
   @override
@@ -55,7 +60,10 @@ class DayCell extends StatelessWidget {
                 ),
                 ...eventBandList,
                 Spacer(),
-                RemainEventText(count: remainEventCount),
+                RemainEventText(
+                  count: remainEventCount,
+                  remainCountPattern: remainCountPattern,
+                ),
               ],
             ),
           ),
@@ -80,7 +88,7 @@ class DayCell extends StatelessWidget {
         width: 16,
         height: 16,
         decoration: BoxDecoration(
-          color: Colors.blue,
+          color: paletteConfig.today,
           borderRadius: BorderRadius.circular(8),
         ),
       );

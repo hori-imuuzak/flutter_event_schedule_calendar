@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 class RemainEventText extends StatelessWidget {
   final int count;
+  final String remainCountPattern;
 
-  RemainEventText({this.count});
+  RemainEventText({
+    this.count,
+    this.remainCountPattern,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +19,7 @@ class RemainEventText extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              '他 ${this.count} 件',
+              remainCountPattern.replaceFirst('%s', count.toString()),
               style: TextStyle(
                 fontSize: 10,
                 fontWeight: FontWeight.bold,
