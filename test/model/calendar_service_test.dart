@@ -1,4 +1,4 @@
-import 'package:event_schedule_calendar/model/calendar_service.dart';
+import 'package:event_schedule_calendar/src/model/calendar_service.dart';
 import 'package:test/test.dart';
 
 bool isSameDate(DateTime d1, DateTime d2) {

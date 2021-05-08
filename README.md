@@ -32,7 +32,7 @@ dependencies:
 ## Example
 
 ```
-import 'package:event_schedule_calendar/event_schedule_calendar.dart';
+import 'package:event_schedule_calendar/src/event_schedule_calendar.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -1,7 +1,7 @@
-import 'package:event_schedule_calendar/entity/day.dart';
-import 'package:event_schedule_calendar/entity/palette_config.dart';
-import 'package:event_schedule_calendar/view/calendar_view/widget/day_cell/widget/event_band.dart';
-import 'package:event_schedule_calendar/view/calendar_view/widget/day_cell/widget/remain_event_text.dart';
+import 'package:event_schedule_calendar/src/entity/day.dart';
+import 'package:event_schedule_calendar/src/entity/palette_config.dart';
+import 'package:event_schedule_calendar/src/view/calendar_view/widget/day_cell/widget/event_band.dart';
+import 'package:event_schedule_calendar/src/view/calendar_view/widget/day_cell/widget/remain_event_text.dart';
 import 'package:flutter/material.dart';
 
 const maxDisplayEventBand = 2;

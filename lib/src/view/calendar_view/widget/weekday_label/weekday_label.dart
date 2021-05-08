@@ -1,4 +1,4 @@
-import 'package:event_schedule_calendar/model/weekday_cursor.dart';
+import 'package:event_schedule_calendar/src/model/weekday_cursor.dart';
 import 'package:flutter/material.dart';
 
 // TODO: i18n

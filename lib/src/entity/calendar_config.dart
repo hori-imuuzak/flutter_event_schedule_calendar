@@ -1,5 +1,5 @@
-import 'package:event_schedule_calendar/entity/palette_config.dart';
-import 'package:event_schedule_calendar/entity/weekday_label_config.dart';
+import 'package:event_schedule_calendar/src/entity/palette_config.dart';
+import 'package:event_schedule_calendar/src/entity/weekday_label_config.dart';
 
 class CalendarConfig {
   WeekdayLabelConfig weekdayLabelConfig;

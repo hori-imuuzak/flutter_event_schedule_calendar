@@ -1,4 +1,4 @@
-import 'package:event_schedule_calendar/entity/event.dart';
+import 'package:event_schedule_calendar/src/entity/event.dart';
 import 'package:flutter/material.dart';
 
 class EventBand extends StatelessWidget {

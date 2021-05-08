@@ -1,11 +1,11 @@
-import 'package:event_schedule_calendar/entity/calendar_config.dart';
-import 'package:event_schedule_calendar/entity/day.dart';
-import 'package:event_schedule_calendar/entity/event.dart';
-import 'package:event_schedule_calendar/entity/month_type.dart';
-import 'package:event_schedule_calendar/model/calendar_service.dart';
-import 'package:event_schedule_calendar/model/event_service.dart';
-import 'package:event_schedule_calendar/view/calendar_view/widget/day_cell/day_cell.dart';
-import 'package:event_schedule_calendar/view/calendar_view/widget/weekday_label/weekday_label.dart';
+import 'package:event_schedule_calendar/src/entity/calendar_config.dart';
+import 'package:event_schedule_calendar/src/entity/day.dart';
+import 'package:event_schedule_calendar/src/entity/event.dart';
+import 'package:event_schedule_calendar/src/entity/month_type.dart';
+import 'package:event_schedule_calendar/src/model/calendar_service.dart';
+import 'package:event_schedule_calendar/src/model/event_service.dart';
+import 'package:event_schedule_calendar/src/view/calendar_view/widget/day_cell/day_cell.dart';
+import 'package:event_schedule_calendar/src/view/calendar_view/widget/weekday_label/weekday_label.dart';
 import 'package:flutter/material.dart';
 
 class CalendarView extends StatelessWidget {
