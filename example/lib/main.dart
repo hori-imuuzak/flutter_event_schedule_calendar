@@ -1,6 +1,4 @@
-import 'package:event_schedule_calendar/entity/calendar_config.dart';
-import 'package:event_schedule_calendar/entity/event.dart';
-import 'package:event_schedule_calendar/view/calendar_view/calendar_view.dart';
+import 'package:event_schedule_calendar/event_schedule_calendar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,10 +9,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: MyHomePage(title: 'event_schedule_calendar demo'),
     );
   }

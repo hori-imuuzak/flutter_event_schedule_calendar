@@ -1,8 +1,7 @@
 name: event_schedule_calendar
-description: A new Flutter package project.
-version: 0.0.1
-author:
-homepage:
+description: develop calendar.
+version: 1.0.0
+repository: https://github.com/hori-imuuzak/flutter_event_schedule_calendar
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
