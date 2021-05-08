@@ -16,6 +16,7 @@ class Day {
     this._eventList = eventList;
   }
 
+  DateTime get dateTime => _dateTime;
   String get dayString => _dateTime.day.toString();
   bool get isPrevMonth => _monthType == MonthType.prev;
   bool get isCurrentMonth => _monthType == MonthType.current;

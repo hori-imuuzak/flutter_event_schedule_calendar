@@ -1,6 +1,8 @@
 import 'package:example/entity/event.dart';
-import 'package:example/view/calendar_view.dart';
+import 'package:example/view/calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
+
+import 'entity/day.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,6 +42,21 @@ class _MyHomePageState extends State<MyHomePage> {
           dateTime: DateTime.now(),
           eventList: [
             Event(
+              name: 'event1',
+              dateTime: DateTime(2021, 5, 1),
+              color: Colors.brown,
+            ),
+            Event(
+              name: 'event2',
+              dateTime: DateTime(2021, 5, 1),
+              color: Colors.brown,
+            ),
+            Event(
+              name: 'event3',
+              dateTime: DateTime(2021, 5, 1),
+              color: Colors.brown,
+            ),
+            Event(
               name: '誕生日',
               dateTime: DateTime(2021, 5, 29),
               color: Colors.red,
@@ -55,6 +72,10 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.blue,
             ),
           ],
+          beginWeekday: DateTime.sunday,
+          onTapDay: (Day day) {
+            print(day.dateTime);
+          },
         ),
       ),
     );

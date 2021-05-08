@@ -1,14 +1,18 @@
 import 'package:example/entity/day.dart';
-import 'package:example/view/event_band.dart';
-import 'package:example/view/remain_event_text.dart';
+import 'package:example/view/calendar_view/widget/day_cell/widget/event_band.dart';
+import 'package:example/view/calendar_view/widget/day_cell/widget/remain_event_text.dart';
 import 'package:flutter/material.dart';
 
 const maxDisplayEventBand = 2;
 
 class DayCell extends StatelessWidget {
   final Day day;
+  final Function onTap;
 
-  DayCell({this.day});
+  DayCell({
+    this.day,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +34,9 @@ class DayCell extends StatelessWidget {
             ),
           ),
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              onTap(day);
+            },
             child: Column(
               children: [
                 Padding(

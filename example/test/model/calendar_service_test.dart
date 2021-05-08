@@ -62,5 +62,7 @@ void main() {
         expect(isSameDate(list[5], DateTime(2021, 6, 6)), true);
       });
     });
+
+    group('始まりの曜日を設定したときのテスト', () {});
   });
 }

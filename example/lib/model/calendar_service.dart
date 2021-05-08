@@ -1,10 +1,20 @@
+import 'package:example/model/weekday_cursor.dart';
+
 class CalendarService {
+  int _beginWeekday;
+  int _endWeekday;
+
   DateTime _date;
   DateTime get date => _date;
 
-  CalendarService() {
+  CalendarService({int begin = DateTime.monday}) {
     final now = DateTime.now();
     _date = DateTime(now.year, now.month, 1);
+    _beginWeekday = begin;
+
+    final weekdayCursor = WeekdayCursor(begin: begin);
+    weekdayCursor.moveToPrev();
+    _endWeekday = weekdayCursor.current;
   }
 
   void setYearMonth(int year, int month) {
@@ -32,11 +42,12 @@ class CalendarService {
     List<DateTime> prevMonthDateTimeList = [];
 
     var date = getFirstDate();
-    var weekday = date.weekday;
-    while (weekday > DateTime.monday) {
+    final weekdayCursor = WeekdayCursor(begin: date.weekday);
+
+    while (weekdayCursor.current != _beginWeekday) {
       date = date.subtract(Duration(days: 1));
       prevMonthDateTimeList.insert(0, date);
-      weekday--;
+      weekdayCursor.moveToPrev();
     }
 
     return prevMonthDateTimeList;
@@ -46,11 +57,12 @@ class CalendarService {
     List<DateTime> nextMonthDateTimeList = [];
 
     var date = getLastDate();
-    var weekday = date.weekday;
-    while (weekday < DateTime.sunday) {
+    final weekdayCursor = WeekdayCursor(begin: date.weekday);
+    print(weekdayCursor.current);
+    while (weekdayCursor.current != _endWeekday) {
       date = date.add(Duration(days: 1));
       nextMonthDateTimeList.add(date);
-      weekday++;
+      weekdayCursor.moveToNext();
     }
 
     return nextMonthDateTimeList;
