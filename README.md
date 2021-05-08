@@ -1,7 +1,5 @@
 # event_schedule_calendar
 
-A new Flutter package project.
-
 ## Usage
 
 add `event_schedule_calendar` to your `pubspec.yml` file
@@ -10,6 +8,12 @@ add `event_schedule_calendar` to your `pubspec.yml` file
 dependencies:
     event_schedule_calendar:
 ```
+
+## Screenshots
+
+<img width="240" src="https://user-images.githubusercontent.com/26102225/117555419-f9a8b480-b099-11eb-924b-fc5680c2e25c.png">
+
+<img width="240" src="https://user-images.githubusercontent.com/26102225/117555448-307eca80-b09a-11eb-9bbe-a0d828f1cc96.png">
 
 ## Parameter
 
