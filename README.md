@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: CalendarView(
+      body: EventScheduleCalendar(
         dateTime: DateTime.now(),
         eventList: [
           Event(
