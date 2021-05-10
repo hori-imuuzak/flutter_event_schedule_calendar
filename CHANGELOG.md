@@ -1,3 +1,7 @@
+## [1.1.0] - Support null safety
+
+* migrate Null safety project
+
 ## [1.0.2] - Update dirs
 
 * Update directories

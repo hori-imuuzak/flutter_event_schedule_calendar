@@ -8,7 +8,7 @@ bool isSameDate(DateTime d1, DateTime d2) {
 void main() {
   group('test model/calendar', () {
     group('2021/5月を基準にしたテスト', () {
-      var calendar;
+      late var calendar;
       setUpAll(() {
         calendar = CalendarService();
         calendar.setYearMonth(2021, 5);

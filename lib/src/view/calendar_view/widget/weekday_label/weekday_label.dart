@@ -36,7 +36,7 @@ class WeekdayLabel extends StatelessWidget {
               ),
             ),
             child: Text(
-              weekdayLabel[weekdayCursor.getAt(index)],
+              weekdayLabel[weekdayCursor.getAt(index)]!,
               style: TextStyle(fontSize: 10),
             ),
           ),

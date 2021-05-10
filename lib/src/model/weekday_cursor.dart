@@ -12,7 +12,7 @@ const _weekday = [
 class WeekdayCursor {
   int _cursor = 1;
 
-  WeekdayCursor({int begin})
+  WeekdayCursor({required int begin})
       : assert(DateTime.monday <= begin),
         assert(begin <= DateTime.sunday) {
     this._cursor = begin;

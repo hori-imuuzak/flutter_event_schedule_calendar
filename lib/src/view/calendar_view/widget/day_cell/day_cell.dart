@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 const maxDisplayEventBand = 2;
 
 class DayCell extends StatelessWidget {
-  final Day day;
-  final Function onTap;
-  final String remainCountPattern;
-  final PaletteConfig paletteConfig;
+  final Day? day;
+  final Function? onTap;
+  final String? remainCountPattern;
+  final PaletteConfig? paletteConfig;
 
   DayCell({
     this.day,
@@ -22,12 +22,12 @@ class DayCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> eventBandList = [];
-    day.eventList.asMap().forEach((index, e) {
+    day!.eventList!.asMap().forEach((index, e) {
       if (index < maxDisplayEventBand) {
         eventBandList.add(EventBand(event: e));
       }
     });
-    final remainEventCount = day.eventList.length - maxDisplayEventBand;
+    final remainEventCount = day!.eventList!.length - maxDisplayEventBand;
 
     return GridTile(
       child: SizedBox(
@@ -40,7 +40,7 @@ class DayCell extends StatelessWidget {
           ),
           child: InkWell(
             onTap: () {
-              onTap(day);
+              onTap!(day);
             },
             child: Column(
               children: [
@@ -51,7 +51,7 @@ class DayCell extends StatelessWidget {
                     children: [
                       _getDayTextBackground(),
                       Text(
-                        day.dayString,
+                        day!.dayString,
                         style:
                             TextStyle(fontSize: 10, color: _getDayTextColor()),
                       ),
@@ -73,9 +73,9 @@ class DayCell extends StatelessWidget {
   }
 
   Color _getDayTextColor() {
-    if (day.isToday) {
+    if (day!.isToday) {
       return Colors.white;
-    } else if (day.isCurrentMonth) {
+    } else if (day!.isCurrentMonth) {
       return Colors.black;
     }
 
@@ -83,12 +83,12 @@ class DayCell extends StatelessWidget {
   }
 
   Widget _getDayTextBackground() {
-    if (day.isToday) {
+    if (day!.isToday) {
       return Container(
         width: 16,
         height: 16,
         decoration: BoxDecoration(
-          color: paletteConfig.today,
+          color: paletteConfig!.today,
           borderRadius: BorderRadius.circular(8),
         ),
       );

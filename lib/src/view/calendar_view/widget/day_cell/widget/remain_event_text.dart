@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RemainEventText extends StatelessWidget {
-  final int count;
-  final String remainCountPattern;
+  final int? count;
+  final String? remainCountPattern;
 
   RemainEventText({
     this.count,
@@ -11,7 +11,7 @@ class RemainEventText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (count > 0) {
+    if (count! > 0) {
       return Padding(
         padding: const EdgeInsets.only(left: 2, bottom: 2),
         child: Row(
@@ -19,7 +19,7 @@ class RemainEventText extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              remainCountPattern.replaceFirst('%s', count.toString()),
+              remainCountPattern!.replaceFirst('%s', count.toString()),
               style: TextStyle(
                 fontSize: 10,
                 fontWeight: FontWeight.bold,

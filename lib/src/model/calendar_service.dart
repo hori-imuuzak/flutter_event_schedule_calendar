@@ -1,11 +1,11 @@
 import 'package:event_schedule_calendar/src/model/weekday_cursor.dart';
 
 class CalendarService {
-  int _beginWeekday;
-  int _endWeekday;
+  int? _beginWeekday;
+  int? _endWeekday;
 
-  DateTime _date;
-  DateTime get date => _date;
+  DateTime? _date;
+  DateTime? get date => _date;
 
   CalendarService({int begin = DateTime.monday}) {
     final now = DateTime.now();
@@ -21,9 +21,9 @@ class CalendarService {
     _date = DateTime(year, month, 1);
   }
 
-  DateTime getFirstDate() => DateTime(_date.year, _date.month, 1);
+  DateTime getFirstDate() => DateTime(_date!.year, _date!.month, 1);
   DateTime getLastDate() =>
-      DateTime(_date.year, _date.month + 1).subtract(Duration(days: 1));
+      DateTime(_date!.year, _date!.month + 1).subtract(Duration(days: 1));
 
   List<DateTime> getCurrentMonthDateTimeList() {
     List<DateTime> currentMonthDateTmeList = [];

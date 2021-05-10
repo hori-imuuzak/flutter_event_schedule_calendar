@@ -8,13 +8,13 @@ import 'package:event_schedule_calendar/src/view/calendar_view/widget/day_cell/d
 import 'package:event_schedule_calendar/src/view/calendar_view/widget/weekday_label/weekday_label.dart';
 import 'package:flutter/material.dart';
 
-class CalendarView extends StatelessWidget {
-  final DateTime dateTime;
-  final List<Event> eventList;
-  final Function onTapDay;
-  final CalendarConfig config;
+class EventScheduleCalendar extends StatelessWidget {
+  final DateTime? dateTime;
+  final List<Event>? eventList;
+  final Function? onTapDay;
+  final CalendarConfig? config;
 
-  CalendarView({
+  EventScheduleCalendar({
     this.dateTime,
     this.eventList,
     this.onTapDay,
@@ -23,7 +23,7 @@ class CalendarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final calendarService = CalendarService(begin: config.beginWeekday);
+    final calendarService = CalendarService(begin: config!.beginWeekday);
     final eventService = EventService();
 
     final cellTable = [
@@ -33,7 +33,7 @@ class CalendarView extends StatelessWidget {
             (e) => Day(
               dateTime: e,
               monthType: MonthType.prev,
-              eventList: eventService.filter(eventList, e),
+              eventList: eventService.filter(eventList!, e),
             ),
           )
           .toList(),
@@ -43,7 +43,7 @@ class CalendarView extends StatelessWidget {
             (e) => Day(
               dateTime: e,
               monthType: MonthType.current,
-              eventList: eventService.filter(eventList, e),
+              eventList: eventService.filter(eventList!, e),
             ),
           )
           .toList(),
@@ -53,7 +53,7 @@ class CalendarView extends StatelessWidget {
             (e) => Day(
               dateTime: e,
               monthType: MonthType.next,
-              eventList: eventService.filter(eventList, e),
+              eventList: eventService.filter(eventList!, e),
             ),
           )
           .toList(),
@@ -68,7 +68,7 @@ class CalendarView extends StatelessWidget {
       ),
       child: Column(
         children: [
-          WeekdayLabel(config.beginWeekday),
+          WeekdayLabel(config!.beginWeekday),
           Expanded(
             child: GridView.count(
               crossAxisCount: 7,
@@ -80,8 +80,8 @@ class CalendarView extends StatelessWidget {
                     (e) => DayCell(
                       day: e.value,
                       onTap: onTapDay,
-                      remainCountPattern: config.remainEventCountPattern,
-                      paletteConfig: config.paletteConfig,
+                      remainCountPattern: config!.remainEventCountPattern,
+                      paletteConfig: config!.paletteConfig,
                     ),
                   )
                   .toList(),
