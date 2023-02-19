@@ -1,4 +1,5 @@
 import 'package:event_schedule_calendar/src/entity/day.dart';
+import 'package:event_schedule_calendar/src/entity/day_cell_config.dart';
 import 'package:event_schedule_calendar/src/entity/palette_config.dart';
 import 'package:event_schedule_calendar/src/view/calendar_view/widget/day_cell/widget/event_band.dart';
 import 'package:event_schedule_calendar/src/view/calendar_view/widget/day_cell/widget/remain_event_text.dart';
@@ -11,13 +12,14 @@ class DayCell extends StatelessWidget {
   final Function? onTap;
   final String? remainCountPattern;
   final PaletteConfig? paletteConfig;
+  final CellConfig? dayCellConfig;
 
-  DayCell({
-    this.day,
-    this.onTap,
-    this.remainCountPattern,
-    this.paletteConfig,
-  });
+  DayCell(
+      {this.day,
+      this.onTap,
+      this.remainCountPattern,
+      this.paletteConfig,
+      this.dayCellConfig});
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +36,14 @@ class DayCell extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             border: Border(
-              right: BorderSide(color: Colors.black, width: 0.5),
-              bottom: BorderSide(color: Colors.black, width: 0.5),
+              right: BorderSide(
+                color: _getBoxBackground(),
+                width: _getDayCellBorderWidth(),
+              ),
+              bottom: BorderSide(
+                color: _getBoxBackground(),
+                width: _getDayCellBorderWidth(),
+              ),
             ),
           ),
           child: InkWell(
@@ -49,11 +57,27 @@ class DayCell extends StatelessWidget {
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      _getDayTextBackground(),
-                      Text(
-                        day!.dayString,
-                        style:
-                            TextStyle(fontSize: 10, color: _getDayTextColor()),
+                      Container(
+                        decoration: ShapeDecoration(
+                          color: _getDayTextBackground(),
+                          shape: CircleBorder(
+                            side: BorderSide(
+                              width: _selectedBorderWidth(),
+                              color: _selectedBorderActive(),
+                              style: _selectedBorderStyle(),
+                            ),
+                          ),
+                        ),
+                        padding: EdgeInsets.all(16),
+                        margin: EdgeInsets.all(16),
+                        child: Center(
+                          child: Text(
+                            day!.dayString,
+                            style: TextStyle(
+                                fontSize: _getlabelSize(),
+                                color: _getDayTextColor()),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -74,29 +98,52 @@ class DayCell extends StatelessWidget {
 
   Color _getDayTextColor() {
     if (day!.isToday) {
-      return Colors.white;
+      return paletteConfig!.todayFontColor;
     } else if (day!.isCurrentMonth) {
+      return paletteConfig!.dayFontColorInMonth;
+    }
+
+    return paletteConfig!.dayFontColorNotInMonth;
+  }
+
+  Color _getBoxBackground() {
+    if (paletteConfig == null)
       return Colors.black;
-    }
-
-    return Colors.black45;
+    else
+      return paletteConfig!.boxColor;
   }
 
-  Widget _getDayTextBackground() {
+  double _getlabelSize() {
+    if (dayCellConfig == null)
+      return 10;
+    else
+      return dayCellConfig!.fontSize;
+  }
+
+  double _getDayCellBorderWidth() {
+    if (dayCellConfig == null)
+      return 0.5;
+    else
+      return dayCellConfig!.dayCellBorderWidth;
+  }
+
+  Color _getDayTextBackground() {
     if (day!.isToday) {
-      return Container(
-        width: 16,
-        height: 16,
-        decoration: BoxDecoration(
-          color: paletteConfig!.today,
-          borderRadius: BorderRadius.circular(8),
-        ),
-      );
+      return paletteConfig!.today;
     }
 
-    return Container(
-      width: 16,
-      height: 16,
-    );
+    return Colors.transparent;
   }
+
+  Color _selectedBorderActive() {
+    if (day!.isToday) {
+      return paletteConfig!.selectedBorder;
+    }
+
+    return Colors.transparent;
+  }
+
+  double _selectedBorderWidth() => dayCellConfig!.selectedBorderWidth;
+
+  BorderStyle _selectedBorderStyle() => dayCellConfig!.selectedBorderStyle;
 }

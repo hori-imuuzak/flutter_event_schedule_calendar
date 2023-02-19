@@ -82,6 +82,7 @@ class EventScheduleCalendar extends StatelessWidget {
                       onTap: onTapDay,
                       remainCountPattern: config!.remainEventCountPattern,
                       paletteConfig: config!.paletteConfig,
+                      dayCellConfig: config!.dayCellConfig,
                     ),
                   )
                   .toList(),
